@@ -1,0 +1,8 @@
+Je recupere toutes les entrees de la base sql (celle en local) => dataList
+Je crée une liste de component ParcoursItem en mappant cette liste
+chaque component declenche un setActiveParcours(index) qui met un state de l'index a active et declenche egalement un ajaxGet de ce ParcoursItem
+
+Question :
+dois ton recuprer tous les parcours ? ou juste le dernier? les 10 dernier ??
+il faut voir pour optimiser..
+

@@ -1,0 +1,222 @@
+.app {
+	text-align: center;
+	height: 100%;
+}
+
+.charts {
+	width: 50%;
+}
+.map {
+	width: 50%;
+}
+input[type="range"] {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 2px;
+	border-radius: 5px;
+	background: rgb(106, 106, 167);
+	outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 80px;
+	height: 50px;
+	border: 0;
+	cursor: pointer;
+	background-image: url("./assets/velo3.png");
+	background-size: 70%;
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+}
+
+.App-link {
+	color: #61dafb;
+}
+
+.leaflet-container {
+	width: 100%;
+	height: 55vh;
+	z-index: 0;
+}
+
+.chartsMapContainer {
+	display: flex;
+	height: 60vh;
+}
+
+.main {
+	height: 100%;
+	margin-top: 50px;
+	background-color: #fffdfd;
+}
+
+.leaflet-tooltip {
+	background-color: #d2dbdd;
+	border-radius: 20px;
+	padding: 0 2em;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.section {
+	border-radius: 20px;
+	width: 80%;
+	perspective: 5px;
+	justify-content: center;
+	background-color: rgb(247, 247, 247);
+	box-shadow: 20px 20px 45px 5px #000000;
+	margin: 60px auto;
+	padding: 35px 30px;
+}
+.titreParcours {
+	text-align: start;
+	font-weight: 500;
+	font-family: fantasy;
+}
+
+/* //////////////////////////////////////// */
+.analyse {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.spanInfoParcours1 {
+	text-align: start;
+	width: 13vw;
+	min-width: 120px;
+	display: inline-block;
+	font-weight: 200;
+}
+.spanInfoParcours2 {
+	width: 10vw;
+	display: inline-block;
+	min-width: 100px;
+	text-align: right;
+	font-weight: 400;
+}
+
+hr.solid {
+	border-top: 1px solid #bbb;
+	width: 70%;
+}
+
+@media screen and (max-width: 700px) {
+
+	/* //////////////////////////////////////// */
+	.analyse {
+		flex-direction: column;
+	}
+	.spanInfoParcours1 {
+		width: 35vw;
+		font-size: 0.8rem;
+	}
+	.spanInfoParcours2 {
+		width: 35vw;
+		font-size: 0.8rem;
+	}
+	/* //////////////////////////////////////// */
+
+
+
+
+	.chartsMapContainer {
+		flex-direction: column;
+		height: 80vh;
+	}
+
+	.charts {
+		width: 100%;
+		position: relative;
+		left: -20px;
+		height: 90vh;
+	}
+	/* pour meilleur visibilité*/
+
+	.section {
+		width: 90%;
+		border-radius: 20px;
+		perspective: 5px;
+		justify-content: center;
+		background-color: rgb(247, 247, 247);
+		box-shadow: 20px 20px 45px 5px #000000;
+		margin: 10px auto;
+		padding: 10px 10px;
+	}
+	.map {
+		width: 95%;
+		margin: 0 auto;
+		height: 25vh;
+	}
+	.leaflet-container {
+		height: 25vh;
+	}
+
+	/* pour meilleur visibilité du tooltip */
+	.leaflet-tooltip {
+		background-color: #d2dbdd;
+		border-radius: 20px;
+		padding: 0 1rem;
+		font-weight: bold;
+		font-size: 0.6rem;
+	}
+
+	input[type="range"] {
+		-webkit-appearance: none;
+		width: 80%;
+		height: 2px;
+		border-radius: 5px;
+		background: rgb(106, 106, 167);
+		outline: none;
+	}
+	input[type="range"]::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		width: 50px;
+		height: 35px;
+		border: 0;
+		cursor: pointer;
+		background-image: url("./assets/velo3.png");
+		background-size: 70%;
+		background-repeat: no-repeat;
+		background-position: 0px 0px;
+	}
+}
+
+@media screen and (min-width: 701px) and (max-width: 1200px) {
+	/* //////////////////////////////////////// */
+	.analyse {
+		flex-direction: column;
+	}
+
+	.spanInfoParcours1 {
+		width: 25vw;
+	}
+	.spanInfoParcours2 {
+		width: 15vw;
+	}
+	/* //////////////////////////////////////// */
+
+	.chartsMapContainer {
+		flex-direction: column;
+		height: 95vh;
+	}
+
+	.charts {
+		width: 100%;
+		position: relative;
+		left: -20px;
+		height: 90vh;
+	}
+	.map {
+		width: 90%;
+		margin: 0 auto;
+		height: 30vh;
+	}
+	.leaflet-container {
+		height: 30vh;
+	}
+}
