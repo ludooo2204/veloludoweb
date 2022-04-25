@@ -43,7 +43,7 @@ export default function Navbar() {
 				<ul className="list">
 					<li className="items">Accueil</li>
 					<li className="items" onClick={getParcours}>
-						Parcours*
+						Parcours
 					</li>
 					<li className="items">Analyse</li>
 					<li className="items">Records</li>
@@ -54,7 +54,7 @@ export default function Navbar() {
 				<svg viewBox="0 0 100 80" width="30" height="25">
 					<rect width="100" height="20" stroke="blue" fill="#f1f1f1" rx="8" ry="8"></rect>
 					<rect y="30" width="100" height="20" stroke="blue" fill="#f1f1f1" rx="8" ry="8"></rect>
-					<rect y="60" width="100" height="20" stroke="blue" fill="#f1f1f1" strrx="8" ry="8"></rect>
+					<rect y="60" width="100" height="20" stroke="blue" fill="#f1f1f1" rx="8" ry="8"></rect>
 				</svg>
 			</div>
 		</nav>
