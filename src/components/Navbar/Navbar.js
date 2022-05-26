@@ -5,8 +5,6 @@ import "./Navbar.css";
 export default function Navbar() {
 	const [toggleMenu, setToggleMenu] = useState(false);
 	const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-	console.log("window.innerWidth");
-	console.log(window.innerWidth);
 	const toggleNav = () => {
 		console.log(toggleMenu);
 		setToggleMenu(!toggleMenu);
@@ -24,25 +22,25 @@ export default function Navbar() {
 			window.removeEventListener("resize", changeWidth);
 		};
 	}, []);
-	const getParcours = () => {
-		console.log("gegette!");
+	// const getParcours = () => {
+	// 	console.log("gegette!");
 
-		const dataTest = '[{"id":"79","date":"25/06/2021 07:06","trajet":null,"distance":"17178","url":"n3 du 25-06-2021.txt"},{"id":"82","date":"25/06/2021 09:06","trajet":null,"distance":"118","url":"n6 du 25-06-2021 09H06.txt"}]';
-		const dataFromBDD = JSON.parse(dataTest);
-		console.log(dataFromBDD);
-		console.log(dataFromBDD[0].date);
-		const dataFromBDDTriéParDate = dataFromBDD.sort(compare);
+	// 	const dataTest = '[{"id":"79","date":"25/06/2021 07:06","trajet":null,"distance":"17178","url":"n3 du 25-06-2021.txt"},{"id":"82","date":"25/06/2021 09:06","trajet":null,"distance":"118","url":"n6 du 25-06-2021 09H06.txt"}]';
+	// 	const dataFromBDD = JSON.parse(dataTest);
+	// 	console.log(dataFromBDD);
+	// 	console.log(dataFromBDD[0].date);
+	// 	const dataFromBDDTriéParDate = dataFromBDD.sort(compare);
 
-		// ajaxGet("getParcours.php", function (e) {
-		// 	console.log(e);
-		// });
-	};
+	// 	// ajaxGet("getParcours.php", function (e) {
+	// 	// 	console.log(e);
+	// 	// });
+	// };
 	return (
 		<nav>
 			{(toggleMenu || screenWidth > 500) && (
 				<ul className="list">
 					<li className="items">Accueil</li>
-					<li className="items" onClick={getParcours}>
+					<li className="items" >
 						Parcours
 					</li>
 					<li className="items">Analyse</li>
