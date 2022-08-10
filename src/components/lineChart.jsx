@@ -2,24 +2,26 @@ import React from "react";
 
 import { CartesianGrid, Legend, ResponsiveContainer, Line, LineChart, Scatter, ScatterChart, Tooltip, XAxis, YAxis, ReferenceLine } from "recharts";
 import moment from "moment";
+import { handleDataForChart } from "../helpers/maths";
 
 class LineChartVelo extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { activeLabel: 0 };
 	}
-	shouldComponentUpdate(nextProps, nextState) {
-		return false;
-	}
+	// shouldComponentUpdate(nextProps, nextState) {
+	// 	return false;
+	// }
 	handleMouse = (e) => {
 		if (e != null && e.activePayload) {
 			let hoveredChart = e.activePayload[0].name;
-			this.props.activeLabel({ activeLabel: this.props.datas.altitude.findIndex((element) => element.x == e.activeLabel), name: hoveredChart });
+			this.props.activeLabel({ activeLabel: handleDataForChart(this.props.datas).altitude.findIndex((element) => element.x == e.activeLabel), name: hoveredChart });
 		}
 	};
 	render() {
-		console.log("render from lineChartVelo");
-		let datas = this.props.datas;
+		// console.log("render from lineChartVelo");
+		let datas = handleDataForChart(this.props.datas);
+
 		let data = [...datas.BPM, ...datas.altitude, ...datas.speed];
 		return (
 			<div style={{ height: "100%", width: "100%" }}>

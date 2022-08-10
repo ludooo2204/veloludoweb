@@ -1,18 +1,33 @@
 import React from "react";
-import { GeoJSON, MapContainer, TileLayer, Marker,  Tooltip } from "react-leaflet";
+import { GeoJSON, MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
+import { useEffect } from "react";
+import { useRef, useState } from "react/cjs/react.development";
 
 const MapParcours = ({ dataPosition, markerPosition, dataOnHover }) => {
-	const data = {
-		type: "Feature",
-		id: "15",
-		name: "test",
-		properties: {},
-		geometry: {
-			type: "MultiLineString",
-			coordinates: [dataPosition],
-		},
-	};
-	const centerPosition = [(dataPosition[0][1] + dataPosition[Math.round(dataPosition.length / 2)][1]) / 2, (dataPosition[0][0] + dataPosition[Math.round(dataPosition.length / 2)][0]) / 2];
+	const [data, setData] = useState(null);
+	const centerPosition=[(dataPosition[0][1] + dataPosition[Math.round(dataPosition.length / 2)][1]) / 2, (dataPosition[0][0] + dataPosition[Math.round(dataPosition.length / 2)][0]) / 2]
+
+	const geoJsonLayer = useRef(null);
+
+	// if (data) console.log(data.geometry.coordinates);
+	useEffect(() => {
+		setData({
+			type: "Feature",
+			id: "15",
+			name: "test",
+			properties: {},
+			geometry: {
+				type: "MultiLineString",
+				coordinates: [dataPosition],
+			},
+		});
+	}, [dataPosition]);
+
+	useEffect(() => {
+		if (geoJsonLayer.current) {
+			geoJsonLayer.current.clearLayers().addData(data);
+		}
+	}, [data]);
 
 	return (
 		<div style={{ margin: 10 }}>
@@ -30,7 +45,12 @@ const MapParcours = ({ dataPosition, markerPosition, dataOnHover }) => {
 								</div>
 							) : null}
 						</Tooltip>
-						<GeoJSON  color="black" data={data} />
+						<GeoJSON
+							ref={geoJsonLayer}
+							// key={dataPosition}
+							color="black"
+							data={data}
+						/>
 					</Marker>
 				)}
 			</MapContainer>

@@ -13,10 +13,10 @@ const ParcoursItem = ({ dataListItem }) => {
 	const [hoveredChart, setHoveredChart] = React.useState(null);
 	const [dataAnalysées, setDatasAnalysées] = React.useState(null);
 	const [data, setDatas] = React.useState(null);
-
+	// const [refresh, setRefresh] = React.useState(0);
 
 	useEffect(() => {
-		console.log("render from useEffect sliderPosition");
+		// console.log("render from useEffect sliderPosition");
 		if (data) {
 			if ((hoveredChart == "BPM") & (data[0] != undefined)) {
 				let pos = Math.round((data[0].length / data[1].length) * sliderPosition);
@@ -45,12 +45,19 @@ const ParcoursItem = ({ dataListItem }) => {
 		}
 	}, [sliderPosition]);
 	useEffect(() => {
-        console.log("fetch ",dataListItem.url)
+		console.log("fetch ", dataListItem.url);
 		ajaxGet(dataListItem.url, (reponse) => {
 			const arrayData = JSON.parse(reponse);
 			setDatas(arrayData);
 			setDatasAnalysées(analyseData(arrayData));
+			// setRefresh(refresh+1)
 		});
+		// ajaxGet("http://localhost:7000/", (reponse) => {
+		// 	const arrayData = JSON.parse(reponse);
+		// 	console.log("arrayData");
+		// 	console.log(arrayData);
+		// 	// setRefresh(refresh+1)
+		// });
 	}, [dataListItem]);
 
 	const handleSlider = (pos) => {
@@ -75,7 +82,7 @@ const ParcoursItem = ({ dataListItem }) => {
 							<MapParcours dataOnHover={dataOnHover} dataPosition={dataAnalysées.positionLongLat} markerPosition={sliderPosition} />
 						</div>
 						<div className="charts">
-							<LineChartVelo datas={handleDataForChart(data)} positionSliderProps={sliderPosition} title="Ecart/appareil" color="#70CAD1" activeLabel={handleHoverGraph} />
+							<LineChartVelo datas={data} positionSliderProps={sliderPosition} title="Ecart/appareil" color="#70CAD1" activeLabel={handleHoverGraph} />
 						</div>
 					</div>
 					<SliderPosition arrayLength={data[1].length} sliderValue={handleSlider} sliderValueProps={sliderPosition} />
