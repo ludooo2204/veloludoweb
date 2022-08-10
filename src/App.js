@@ -16,9 +16,7 @@ const App = () => {
 	
 		});
 	}, []);
-	useEffect(() => {
 
-	}, [index]);
 	const handleKey = (e) => {
 		if (e.keyCode === 37&& index!==0) {
 			setIndex(index-1)
